@@ -1,0 +1,10 @@
+^C:\USERS\MARCE\DOCUMENTS\VSCODE PROJECTS\WINDOWSAPPTEMPLATE\DEPENDENCIES\GLFW-3.3.7\TESTS\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate" "-BC:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build" --check-stamp-file "C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glfw-3.3.7/tests/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

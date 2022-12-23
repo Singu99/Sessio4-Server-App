@@ -1,0 +1,127 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"dependencies/glfw-3.3.7/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "glfw::@3e830c90b26cb50a85f4"
+		},
+		{
+			"id" : "boing::@1f95d347bdcbae875d8c"
+		},
+		{
+			"id" : "splitview::@1f95d347bdcbae875d8c"
+		},
+		{
+			"id" : "gears::@1f95d347bdcbae875d8c"
+		},
+		{
+			"id" : "heightmap::@1f95d347bdcbae875d8c"
+		},
+		{
+			"id" : "particles::@1f95d347bdcbae875d8c"
+		},
+		{
+			"id" : "simple::@1f95d347bdcbae875d8c"
+		},
+		{
+			"id" : "offscreen::@1f95d347bdcbae875d8c"
+		},
+		{
+			"id" : "sharing::@1f95d347bdcbae875d8c"
+		},
+		{
+			"id" : "wave::@1f95d347bdcbae875d8c"
+		},
+		{
+			"id" : "title::@1cee8197085050d05037"
+		},
+		{
+			"id" : "windows::@1cee8197085050d05037"
+		},
+		{
+			"id" : "monitors::@1cee8197085050d05037"
+		},
+		{
+			"id" : "cursor::@1cee8197085050d05037"
+		},
+		{
+			"id" : "msaa::@1cee8197085050d05037"
+		},
+		{
+			"id" : "gamma::@1cee8197085050d05037"
+		},
+		{
+			"id" : "empty::@1cee8197085050d05037"
+		},
+		{
+			"id" : "opacity::@1cee8197085050d05037"
+		},
+		{
+			"id" : "glfwinfo::@1cee8197085050d05037"
+		},
+		{
+			"id" : "threads::@1cee8197085050d05037"
+		},
+		{
+			"id" : "tearing::@1cee8197085050d05037"
+		},
+		{
+			"id" : "timeout::@1cee8197085050d05037"
+		},
+		{
+			"id" : "inputlag::@1cee8197085050d05037"
+		},
+		{
+			"id" : "clipboard::@1cee8197085050d05037"
+		},
+		{
+			"id" : "icon::@1cee8197085050d05037"
+		},
+		{
+			"id" : "events::@1cee8197085050d05037"
+		},
+		{
+			"id" : "iconify::@1cee8197085050d05037"
+		},
+		{
+			"id" : "reopen::@1cee8197085050d05037"
+		},
+		{
+			"id" : "joysticks::@1cee8197085050d05037"
+		},
+		{
+			"id" : "triangle-vulkan::@1cee8197085050d05037"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "CMakePredefinedTargets"
+	},
+	"id" : "ALL_BUILD::@18c99fe4fe5faed393f4",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : "dependencies/glfw-3.3.7",
+		"source" : "dependencies/glfw-3.3.7"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}
