@@ -6,6 +6,7 @@ enable_testing()
 
 add_subdirectory(dependencies/glfw-3.3.7)
 add_subdirectory(dependencies/glad)
+add_subdirectory(dependencies/imgui)
 
 find_package(OpenGL REQUIRED)
 

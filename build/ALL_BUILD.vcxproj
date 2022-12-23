@@ -229,6 +229,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{F0A5399C-E5BB-3B5B-8956-3D47AB4D5CE5}</Project>
       <Name>iconify</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\build\dependencies\imgui\imgui.vcxproj">
+      <Project>{671ADD68-DDC6-3AF7-992B-4C379D431647}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\build\dependencies\glfw-3.3.7\tests\inputlag.vcxproj">
       <Project>{D15CCB8A-EC7A-35D7-A3E9-621DC3F909AE}</Project>
       <Name>inputlag</Name>

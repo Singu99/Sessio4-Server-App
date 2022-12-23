@@ -57,3 +57,7 @@ C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/g
 C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glad/CMakeFiles/PACKAGE.dir
 C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glad/CMakeFiles/RUN_TESTS.dir
 C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glad/CMakeFiles/INSTALL.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/imgui/CMakeFiles/imgui.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/imgui/CMakeFiles/PACKAGE.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/imgui/CMakeFiles/RUN_TESTS.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/imgui/CMakeFiles/INSTALL.dir
