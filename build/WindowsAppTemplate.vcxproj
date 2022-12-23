@@ -87,7 +87,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -104,10 +104,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -127,7 +127,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>dependencies\glfw-3.3.7\src\Debug\glfw3.lib;opengl32.lib;dependencies\glad\Debug\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>dependencies\glfw-3.3.7\src\Debug\glfw3.lib;opengl32.lib;dependencies\glad\Debug\glad.lib;dependencies\imgui\Debug\imgui.lib;dependencies\glfw-3.3.7\src\Debug\glfw3.lib;dependencies\glad\Debug\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -142,7 +142,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -159,10 +159,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -182,7 +182,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>dependencies\glfw-3.3.7\src\Release\glfw3.lib;opengl32.lib;dependencies\glad\Release\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>dependencies\glfw-3.3.7\src\Release\glfw3.lib;opengl32.lib;dependencies\glad\Release\glad.lib;dependencies\imgui\Release\imgui.lib;dependencies\glfw-3.3.7\src\Release\glfw3.lib;dependencies\glad\Release\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -197,7 +197,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -214,10 +214,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -237,7 +237,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>dependencies\glfw-3.3.7\src\MinSizeRel\glfw3.lib;opengl32.lib;dependencies\glad\MinSizeRel\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>dependencies\glfw-3.3.7\src\MinSizeRel\glfw3.lib;opengl32.lib;dependencies\glad\MinSizeRel\glad.lib;dependencies\imgui\MinSizeRel\imgui.lib;dependencies\glfw-3.3.7\src\MinSizeRel\glfw3.lib;dependencies\glad\MinSizeRel\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -252,7 +252,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -268,10 +268,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glfw-3.3.7\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glad\include;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm\glm;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\imgui\imgui\backends;C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\dependencies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -291,7 +291,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>dependencies\glfw-3.3.7\src\RelWithDebInfo\glfw3.lib;opengl32.lib;dependencies\glad\RelWithDebInfo\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>dependencies\glfw-3.3.7\src\RelWithDebInfo\glfw3.lib;opengl32.lib;dependencies\glad\RelWithDebInfo\glad.lib;dependencies\imgui\RelWithDebInfo\imgui.lib;dependencies\glfw-3.3.7\src\RelWithDebInfo\glfw3.lib;dependencies\glad\RelWithDebInfo\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -378,6 +378,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\build\dependencies\glfw-3.3.7\src\glfw.vcxproj">
       <Project>{DC727474-48AB-3E21-A38C-F006CE15CAD1}</Project>
       <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\build\dependencies\imgui\imgui.vcxproj">
+      <Project>{671ADD68-DDC6-3AF7-992B-4C379D431647}</Project>
+      <Name>imgui</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

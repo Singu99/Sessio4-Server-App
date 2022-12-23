@@ -61,3 +61,10 @@ C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/i
 C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/imgui/CMakeFiles/PACKAGE.dir
 C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/imgui/CMakeFiles/RUN_TESTS.dir
 C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/imgui/CMakeFiles/INSTALL.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glm/CMakeFiles/PACKAGE.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glm/CMakeFiles/RUN_TESTS.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glm/CMakeFiles/INSTALL.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glm/CMakeFiles/ALL_BUILD.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glm/glm/CMakeFiles/PACKAGE.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glm/glm/CMakeFiles/RUN_TESTS.dir
+C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glm/glm/CMakeFiles/INSTALL.dir

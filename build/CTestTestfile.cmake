@@ -7,3 +7,4 @@
 subdirs("dependencies/glfw-3.3.7")
 subdirs("dependencies/glad")
 subdirs("dependencies/imgui")
+subdirs("dependencies/glm")

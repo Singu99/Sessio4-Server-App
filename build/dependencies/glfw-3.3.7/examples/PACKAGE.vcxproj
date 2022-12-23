@@ -203,7 +203,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\build\ALL_BUILD.vcxproj">
+    <ProjectReference Include="C:\Users\marce\Documents\VSCode Projects\WindowsAppTemplate\build\dependencies\glm\ALL_BUILD.vcxproj">
       <Project>{12D1AC19-38E3-39E9-B108-B4EDBD1C541C}</Project>
       <Name>ALL_BUILD</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

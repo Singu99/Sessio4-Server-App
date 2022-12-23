@@ -37,6 +37,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glfw-3.3.7/cmake_install.cmake")
   include("C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glad/cmake_install.cmake")
   include("C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/imgui/cmake_install.cmake")
+  include("C:/Users/marce/Documents/VSCode Projects/WindowsAppTemplate/build/dependencies/glm/cmake_install.cmake")
 
 endif()
 
