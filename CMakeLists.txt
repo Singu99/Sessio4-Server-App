@@ -12,9 +12,9 @@ add_subdirectory(dependencies/glm)
 find_package(OpenGL REQUIRED)
 
 set(BUILD_SHARED_LIBS OFF)
-add_executable(WindowsAppTemplate main.cpp)
+add_executable(WindowsAppTemplate src/main.cpp src/Controller.cpp src/Ui/UserInterface.cpp src/Server/WebSocketServer.cpp)
 
-target_include_directories(WindowsAppTemplate PUBLIC dependencies/glfw-3.3.7/include dependencies/glad/include dependencies/imgui dependencies/imgui/backends dependencies/glm/glm dependencies/crow/include)
+target_include_directories(WindowsAppTemplate PUBLIC dependencies/glfw-3.3.7/include dependencies/glad/include dependencies/imgui dependencies/imgui/backends dependencies/glm/glm dependencies/crow/include src)
 target_link_directories(WindowsAppTemplate PUBLIC dependencies/crow/lib)
 target_link_libraries(WindowsAppTemplate glfw OpenGL::GL glad imgui glm )  
 
