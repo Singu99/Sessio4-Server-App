@@ -10,217 +10,96 @@
 #include <iostream>
 #include <thread>
 
-const char *vertexShaderSrc = R"(
-#version 450
-
-layout (location = 0) in vec2 aPos;
-
-void main() {
-    gl_Position = vec4(aPos, 1, 1);
-}
-
-)";
-
-const char *fragmentShaderSrc = R"(
-#version 450
-
-layout (location = 0) out vec4 outColor;
-
-void main() {
-    outColor = vec4(1, 0, 0, 1);
-}
-
-)";
-
-void message_callback(GLenum source, GLenum type, GLuint id, GLenum severity,
-                      GLsizei length, GLchar const *message,
-                      void const *user_param) {
-  if (severity == GL_DEBUG_SEVERITY_NOTIFICATION)
-    return;
-
-  auto const src_str = [source]() {
-    switch (source) {
-    case GL_DEBUG_SOURCE_API:
-      return "API";
-    case GL_DEBUG_SOURCE_WINDOW_SYSTEM:
-      return "WINDOW SYSTEM";
-    case GL_DEBUG_SOURCE_SHADER_COMPILER:
-      return "SHADER COMPILER";
-    case GL_DEBUG_SOURCE_THIRD_PARTY:
-      return "THIRD PARTY";
-    case GL_DEBUG_SOURCE_APPLICATION:
-      return "APPLICATION";
-    case GL_DEBUG_SOURCE_OTHER:
-      return "OTHER";
-    default:
-      return "UNKNOWN SOURCE";
-    }
-  }();
-
-  auto const type_str = [type]() {
-    switch (type) {
-    case GL_DEBUG_TYPE_ERROR:
-      return "ERROR";
-    case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
-      return "DEPRECATED_BEHAVIOR";
-    case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:
-      return "UNDEFINED_BEHAVIOR";
-    case GL_DEBUG_TYPE_PORTABILITY:
-      return "PORTABILITY";
-    case GL_DEBUG_TYPE_PERFORMANCE:
-      return "PERFORMANCE";
-    case GL_DEBUG_TYPE_MARKER:
-      return "MARKER";
-    case GL_DEBUG_TYPE_OTHER:
-      return "OTHER";
-    default:
-      return "UNKNOWN TYPE";
-    }
-  }();
-
-  auto const severity_str = [severity]() {
-    switch (severity) {
-    case GL_DEBUG_SEVERITY_NOTIFICATION:
-      return "NOTIFICATION";
-    case GL_DEBUG_SEVERITY_LOW:
-      return "LOW";
-    case GL_DEBUG_SEVERITY_MEDIUM:
-      return "MEDIUM";
-    case GL_DEBUG_SEVERITY_HIGH:
-      return "HIGH";
-    default:
-      return "UNKNOWN SEVERITY";
-    }
-  }();
-  std::cout << src_str << ", " << type_str << ", " << severity_str << ", " << id
-            << ": " << message << '\n';
-}
+void LayerWindow(const std::string& name);
+void NodeWindow(const std::string& name);
+void ShowExampleAppDockSpace(bool* p_open);
 
 int main(int argc, char *argv[]) {
 
-  glfwInit();
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
-  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+glfwInit();
+glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
+glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-  auto window = glfwCreateWindow(800, 600, "Example", nullptr, nullptr);
-  if (!window)
-    throw std::runtime_error("Error creating glfw window");
-  glfwMakeContextCurrent(window);
-  glfwSwapInterval(1);
+auto window = glfwCreateWindow(1080, 720, "Example", nullptr, nullptr);
+if (!window)
+  throw std::runtime_error("Error creating glfw window");
+glfwMakeContextCurrent(window);
+glfwSwapInterval(1);
 
-  if (!gladLoadGL())
-    throw std::runtime_error("Error initializing glad");
+if (!gladLoadGL())
+  throw std::runtime_error("Error initializing glad");
 
-  /**
-   * Initialize ImGui
-   */
+/**
+ * Initialize ImGui
+ */
+  // Setup Dear ImGui context
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
+  ImGuiIO& io = ImGui::GetIO(); (void)io;
+  io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
+  //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+  io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
+  io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
+  //io.ConfigViewportsNoAutoMerge = true;
+  //io.ConfigViewportsNoTaskBarIcon = true;
+
+  // Setup Dear ImGui style
+  ImGui::StyleColorsDark();
+
+  // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
+  ImGuiStyle& style = ImGui::GetStyle();
+  if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+  {
+      style.WindowRounding = 0.0f;
+      style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+  }
+
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init("#version 450 core");
-  ImGui::StyleColorsClassic();
+
 
   glEnable(GL_CULL_FACE);
   glEnable(GL_DEBUG_OUTPUT);
-  glDebugMessageCallback(message_callback, nullptr);
-
-  /**
-   * Compile shader
-   */
-  int success;
-  char infoLog[512];
-  auto vertexShader = glCreateShader(GL_VERTEX_SHADER);
-  glShaderSource(vertexShader, 1, &vertexShaderSrc, 0);
-  glCompileShader(vertexShader);
-
-  glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-  if (!success) {
-    glGetShaderInfoLog(vertexShader, 512, nullptr, infoLog);
-    std::cerr << "Vertex shader compilation failed:" << std::endl;
-    std::cerr << infoLog << std::endl;
-    return 0;
-  }
-
-  auto fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-  glShaderSource(fragmentShader, 1, &fragmentShaderSrc, 0);
-  glCompileShader(fragmentShader);
-
-  glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-  if (!success) {
-    glGetShaderInfoLog(fragmentShader, 512, nullptr, infoLog);
-    std::cerr << "Fragment shader compilation failed:" << std::endl;
-    std::cerr << infoLog << std::endl;
-    return 0;
-  }
-
-  auto program = glCreateProgram();
-  glAttachShader(program, vertexShader);
-  glAttachShader(program, fragmentShader);
-  glLinkProgram(program);
-
-  glGetProgramiv(program, GL_LINK_STATUS, &success);
-  if (!success) {
-    glGetShaderInfoLog(program, 512, nullptr, infoLog);
-    std::cerr << "Shader linking failed:" << std::endl;
-    std::cerr << infoLog << std::endl;
-    return 0;
-  }
-
-  glDetachShader(program, vertexShader);
-  glDetachShader(program, fragmentShader);
-
-  /**
-   * Create vertex array and buffers
-   */
-  GLuint vao;
-  glCreateVertexArrays(1, &vao);
-
-  glEnableVertexArrayAttrib(vao, 0);
-  glVertexArrayAttribFormat(vao, 0, 2, GL_FLOAT, GL_FALSE,
-                            offsetof(glm::vec2, x));
-
-  glVertexArrayAttribBinding(vao, 0, 0);
-
-  glm::vec2 vertices[] = {{-0.2, -0.2}, {-0.2, 0.2}, {0.2, 0.2}, {0.2, -0.2}};
-
-  GLuint vbo;
-  glCreateBuffers(1, &vbo);
-  glNamedBufferStorage(vbo, sizeof(glm::vec2) * 4, vertices,
-                       GL_DYNAMIC_STORAGE_BIT);
-
-  std::uint32_t indices[] = {0, 2, 1, 2, 0, 3};
-
-  GLuint ibo;
-  glCreateBuffers(1, &ibo);
-  glNamedBufferStorage(ibo, sizeof(std::uint32_t) * 6, indices,
-                       GL_DYNAMIC_STORAGE_BIT);
-
-  glBindVertexArray(vao);
-  glVertexArrayVertexBuffer(vao, 0, vbo, 0, sizeof(glm::vec2));
-  glVertexArrayElementBuffer(vao, ibo);
-  glUseProgram(program);
-  glClearColor(0, 0, 0, 0);
+  glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
   while (!glfwWindowShouldClose(window)) {
     glfwPollEvents();
-
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    static bool showDemo = false;
-    ImGui::Begin("Example");
-    if (ImGui::Button("Show/Hide ImGui demo"))
-      showDemo = !showDemo;
-    ImGui::End();
-    if (showDemo)
-      ImGui::ShowDemoWindow(&showDemo);
+    ShowExampleAppDockSpace(nullptr);
 
+    LayerWindow("Core Layer");
+    LayerWindow("Layer one");
+    LayerWindow("Layer two");
+
+    NodeWindow("Node A1");
+    NodeWindow("Node A2");
+    NodeWindow("Node A3");
+    NodeWindow("Node B1");
+    NodeWindow("Node B2");
+    NodeWindow("Node C1");
+    NodeWindow("Node C2");
+
+    ImGui::ShowDemoWindow();
+    
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+    // Update and Render additional Platform Windows
+    // (Platform functions may change the current OpenGL context, so we save/restore it to make it easier to paste this code elsewhere.
+    //  For this specific demo app we could also call glfwMakeContextCurrent(window) directly)
+    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+    {
+        GLFWwindow* backup_current_context = glfwGetCurrentContext();
+        ImGui::UpdatePlatformWindows();
+        ImGui::RenderPlatformWindowsDefault();
+        glfwMakeContextCurrent(backup_current_context);
+    }
+
 
     glfwSwapBuffers(window);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -235,4 +114,67 @@ int main(int argc, char *argv[]) {
   glfwDestroyWindow(window);
   glfwTerminate();
   return 0;
+}
+
+void NodeWindow(const std::string& name)
+{
+    ImGui::Begin(name.c_str());
+    ImGui::Text("Name: ");
+    ImGui::Text("Version: ");
+    ImGui::End();
+}
+
+void LayerWindow(const std::string& name)
+{
+    ImGui::Begin(name.c_str());
+    ImGui::Text("Transmitting to next layer...");
+    ImGui::End();
+}
+
+void ShowExampleAppDockSpace(bool* p_open)
+{
+    static ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_PassthruCentralNode;
+
+    // We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
+    // because it would be confusing to have two docking targets within each others.
+    ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar;;
+    const ImGuiViewport* viewport = ImGui::GetMainViewport();
+    ImGui::SetNextWindowPos(viewport->WorkPos);
+    ImGui::SetNextWindowSize(viewport->WorkSize);
+    ImGui::SetNextWindowViewport(viewport->ID);
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+    window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
+    window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
+
+    ImGui::Begin("Web Socket server app", p_open, window_flags);
+
+    ImGui::PopStyleVar(2);
+
+    // Submit the DockSpace
+    ImGuiIO& io = ImGui::GetIO();
+    if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
+    {
+        ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
+        ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
+    }
+
+    if (ImGui::BeginMenuBar())
+    {
+        if (ImGui::BeginMenu("Options"))
+        {
+            ImGui::Separator();
+            if (ImGui::MenuItem("Flag: NoSplit",                "", (dockspace_flags & ImGuiDockNodeFlags_NoSplit) != 0))                 { dockspace_flags ^= ImGuiDockNodeFlags_NoSplit; }
+            if (ImGui::MenuItem("Flag: NoResize",               "", (dockspace_flags & ImGuiDockNodeFlags_NoResize) != 0))                { dockspace_flags ^= ImGuiDockNodeFlags_NoResize; }
+            if (ImGui::MenuItem("Flag: NoDockingInCentralNode", "", (dockspace_flags & ImGuiDockNodeFlags_NoDockingInCentralNode) != 0))  { dockspace_flags ^= ImGuiDockNodeFlags_NoDockingInCentralNode; }
+            if (ImGui::MenuItem("Flag: AutoHideTabBar",         "", (dockspace_flags & ImGuiDockNodeFlags_AutoHideTabBar) != 0))          { dockspace_flags ^= ImGuiDockNodeFlags_AutoHideTabBar; }
+            ImGui::Separator();
+
+            if (ImGui::MenuItem("Close", NULL, false, p_open != NULL))
+                *p_open = false;
+            ImGui::EndMenu();
+        }
+        ImGui::EndMenuBar();
+    }
+    ImGui::End();
 }
