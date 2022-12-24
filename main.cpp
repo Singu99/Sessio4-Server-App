@@ -10,6 +10,8 @@
 #include <iostream>
 #include <thread>
 
+#include <crow.h>
+
 void LayerWindow(const std::string& name);
 void NodeWindow(const std::string& name);
 void ShowExampleAppDockSpace(bool* p_open);
