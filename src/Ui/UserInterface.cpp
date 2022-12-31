@@ -122,14 +122,16 @@ void UserInterface::UpdateNodeVersion(const std::string& name, int version)
 
 void UserInterface::LayerWindow(const std::string &name)
 {
-    ImGui::Begin(name.c_str());
+    ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize;
+    ImGui::Begin(name.c_str(), nullptr, window_flags);
     ImGui::Text("Transmitting to next layer...");
     ImGui::End();
 }
 
 void UserInterface::NodeWindow(const std::string &name)
 {
-    ImGui::Begin(name.c_str());
+    ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize;
+    ImGui::Begin(name.c_str(), nullptr, window_flags);
     ImGui::Spacing();
     ImGui::Spacing();
     ImGui::Separator();
@@ -146,7 +148,7 @@ void UserInterface::ShowAppDockSpace()
 
     // We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
     // because it would be confusing to have two docking targets within each others.
-    ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar;;
+    ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar;
     const ImGuiViewport* viewport = ImGui::GetMainViewport();
     ImGui::SetNextWindowPos(viewport->WorkPos);
     ImGui::SetNextWindowSize(viewport->WorkSize);
@@ -172,16 +174,23 @@ void UserInterface::ShowLogConsole()
 {
     static const char* windowName = "Log console";
 
+    ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoMove 
+                                    | ImGuiWindowFlags_NoResize 
+                                    | ImGuiWindowFlags_NoCollapse 
+                                    | ImGuiWindowFlags_NoTitleBar
+                                    | ImGuiWindowFlags_NoNav
+                                    | ImGuiWindowFlags_NoCollapse;
+    
     // For the demo: add a debug button _BEFORE_ the normal log window contents
     // We take advantage of a rarely used feature: multiple calls to Begin()/End() are appending to the _same_ window.
     // Most of the contents of the window will be added by the log.Draw() call.
     ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiCond_FirstUseEver);
-    ImGui::Begin(windowName, nullptr);
+    ImGui::Begin(windowName, nullptr, window_flags);
     TextCentered("LOG CONSOLE");
     ImGui::End();
 
     // Actually call in the regular Log helper (which will Begin() into the same window as we just did)
-    m_log.Draw(windowName, nullptr);
+    m_log.Draw(windowName, nullptr, window_flags);
 }
 
 

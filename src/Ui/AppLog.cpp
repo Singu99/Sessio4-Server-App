@@ -28,9 +28,9 @@ void AppLog::AddLog(const char* fmt, va_list args)
             m_lineOffsets.push_back(old_size + 1);
 }
 
-void AppLog::Draw(const char* title, bool* p_open)
+void AppLog::Draw(const char* title, bool* p_open, ImGuiWindowFlags flags)
 {
-    if (!ImGui::Begin(title, p_open))
+    if (!ImGui::Begin(title, p_open, flags))
     {
         ImGui::End();
         return;

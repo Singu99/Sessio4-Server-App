@@ -14,7 +14,7 @@ public:
 
     void Clear();
     void AddLog(const char* fmt, va_list args) IM_FMTARGS(2);
-    void Draw(const char* title, bool* p_open = NULL);
+    void Draw(const char* title, bool* p_open, ImGuiWindowFlags flags);
 
 private:
     ImGuiTextBuffer     m_buf;
