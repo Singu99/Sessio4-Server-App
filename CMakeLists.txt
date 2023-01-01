@@ -18,6 +18,12 @@ target_include_directories(WindowsAppTemplate PUBLIC dependencies/glfw-3.3.7/inc
 target_link_directories(WindowsAppTemplate PUBLIC dependencies/crow/lib)
 target_link_libraries(WindowsAppTemplate glfw OpenGL::GL glad imgui glm )  
 
+# Add a custom command to copy the file next to the executable
+add_custom_command(TARGET WindowsAppTemplate POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                   ${CMAKE_SOURCE_DIR}/window_layout/imgui.ini
+                   $<TARGET_FILE_DIR:WindowsAppTemplate>)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
