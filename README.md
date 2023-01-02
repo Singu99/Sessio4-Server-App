@@ -18,5 +18,8 @@ The project has all the build in dependencies in the dependencies folder.
     -   **Crow**: It has Thread and Regex dependencies from boost library.
 
 ## Notes
+The Epidemic replication program is located in the following repository: 
+-   [Epidemic Replication](https://github.com/MarcEspuna/ReplicacioEpidemica)
 
 Remember to open this server first before opening the Epidemic Replication program in order to allow both to connect correctly.
+
